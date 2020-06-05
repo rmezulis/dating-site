@@ -13,7 +13,7 @@ class SettingController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function edit()
     {
         return view('settings');
     }
@@ -24,7 +24,7 @@ class SettingController extends Controller
         setting()->set('to_age', $request->get('to_age'));
         setting()->set('gender', $request->get('gender'));
         setting()->save();
-        return redirect()->route('matching')
+        return redirect()->route('swipe.show')
             ->with('status', 'Settings updated');
     }
 }

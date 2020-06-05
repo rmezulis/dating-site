@@ -36,6 +36,11 @@ class Profile extends Model
             ->whereIn('gender', setting()->get('gender'));
     }
 
+    public function scopeWithoutSelf($query, User $user)
+    {
+        return $query->where('user_id', '<>', $user->id);
+    }
+
     public function scopeWithoutSeen($query, User $user)
     {
         $seen = $user->likes()->pluck('judged_id')->toArray();

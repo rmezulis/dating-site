@@ -48,7 +48,7 @@
 
 .welcome {
     position: absolute;
-    top: 50%;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -128,6 +128,14 @@ div.matches:hover {
 
 .title {
     font-size: 25px;;
+}
+
+.logo {
+    width: 500px;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 html {

@@ -13,7 +13,7 @@ class PictureController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function edit()
     {
         return view('edit-pictures', [
             'pictures' => auth()->user()->pictures

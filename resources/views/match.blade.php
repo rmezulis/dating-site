@@ -18,13 +18,12 @@
                             <div class="col">
                                 @include('profile')
                             </div>
+                            @if($profile->bio)
                             <div class="col-3">
                                 <p style="margin-bottom: 0">Bio:</p>
                                 <p> {{ $profile->bio }}</p>
-                                <button type="button" class="btn btn-primary btn-block align-self-end float-right">
-                                    Chat
-                                </button>
                             </div>
+                                @endif
                         </div>
                     </div>
                 </div>

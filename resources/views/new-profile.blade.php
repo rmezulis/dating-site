@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header title">{{ __('Edit profile') }}</div>
+                    <div class="card-header title">{{ __('New profile') }}</div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('profile.store') }}" enctype="multipart/form-data">
                             @csrf
@@ -16,6 +16,7 @@
                                     <input id="first_name" type="text"
                                            class="form-control @error('first_name') is-invalid @enderror"
                                            name="first_name"
+                                           value="{{ old('first_name') }}"
                                            required>
                                     @error('first_name')
                                     <span class="invalid-feedback" role="alert">
@@ -32,6 +33,7 @@
                                            class="form-control @error('last_name') is-invalid @enderror"
                                            name="last_name"
                                            required
+                                           value="{{ old('last_name') }}"
                                            autocomplete="family-name">
                                     @error('last_name')
                                     <span class="invalid-feedback" role="alert">
@@ -44,7 +46,13 @@
                                 <label for="birthday"
                                        class="col-md-4 col-form-label text-md-right">{{ __('Birthday') }}</label>
                                 <div class="col-md-6">
-                                    <input id="birthday" type="date" class="form-control" name="birthday" required>
+                                    <input id="birthday" type="date" class="form-control" name="birthday" required
+                                           value="{{ old('birthday') }}">
+                                    @error('birthday')
+                                    <span class="text-danger" role="alert">
+                                        <strong style="font-size: 12px">{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -55,6 +63,11 @@
                                         <option value="male"> Male</option>
                                         <option value="female"> Female</option>
                                     </select>
+                                    @error('gender')
+                                    <span class="text-danger" role="alert">
+                                        <strong style="font-size: 12px">{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -65,6 +78,7 @@
                                            class="form-control @error('country') is-invalid @enderror"
                                            name="country"
                                            required
+                                           value="{{ old('country') }}"
                                            autocomplete="country-name">
                                     @error('country')
                                     <span class="invalid-feedback" role="alert">
@@ -80,11 +94,18 @@
                                               rows="3"></textarea>
                                 </div>
                             </div>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="picture" name="picture" required>
-                                <label class="custom-file-label" for="picture">Add new photo</label>
+                            <div class="form-group row">
+                                <label for="picture" class="col-md-4 col-form-label text-md-right">Picture</label>
+                                <div class="col-md-6">
+                                <input type="file" class="form-control-file" id="picture" name="picture" required>
+                                    @error('picture')
+                                    <span class="text-danger" role="alert">
+                                        <strong style="font-size: 12px">{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                            <button type="submit" class="btn btn-primary float-right">{{ __('Finish') }}</button>
                         </form>
                     </div>
                 </div>

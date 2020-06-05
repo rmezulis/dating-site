@@ -7,6 +7,9 @@
                 <div class="card">
                     <div class="card-header title">{{ __('My matches') }}</div>
                     <div class="card-body">
+                        @if($matches->isEmpty())
+                            <p>Looks like you haven't matched with anyone yet! :(</p>
+                            @endif
                         @foreach($matches->chunk(4) as $matches)
                             <div class="d-flex text-center">
                                 @foreach($matches as $match)

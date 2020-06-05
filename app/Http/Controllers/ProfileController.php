@@ -15,7 +15,7 @@ class ProfileController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function show()
     {
         $profile = auth()->user()->profile;
         $pictures = auth()->user()->pictures;
@@ -39,16 +39,18 @@ class ProfileController extends Controller
     }
 
     public function store(StoreProfileRequest $request)
-    {
+    {        dd($request);
+
         $profile = new Profile($request->all());
         $picture = new Picture(['location' => $request->file('picture')->store('pictures')]);
         auth()->user()->profile()->save($profile);
         auth()->user()->pictures()->save($picture);
-        return redirect()->route('profile.index');
+        return redirect()->route('swipe.show');
     }
 
     public function update(StoreProfileRequest $request)
     {
+
         auth()->user()->profile->update($request->all());
         if ($request->file('pictures')) {
             Like::where('judged_id', auth()->id())->where('like', false)->delete();

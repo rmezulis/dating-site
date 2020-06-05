@@ -17,6 +17,7 @@ class AddSettingsToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->longText('settings')
+                ->nullable()
                 ->after('remember_token');
 
         });

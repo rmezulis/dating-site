@@ -19,9 +19,9 @@ class SwipeController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function show()
     {
-        $profile = auth()->user()->profile
+        $profile = Profile::withoutSelf(auth()->user())
             ->withoutSeen(auth()->user())
             ->withSettings()
             ->inRandomOrder()
@@ -52,7 +52,6 @@ class SwipeController extends Controller
 
     public function like(User $user)
     {
-
         /** @var User $currentUser */
         $currentUser = auth()->user();
         $currentUser->likes()->attach($user->id, ['like' => true]);
