@@ -8,8 +8,8 @@
                     <div class="card-header title">{{ __('Edit profile') }}</div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data">
-                            @method('PATCH')
                             @csrf
+                            @method('PATCH')
                             <div class="form-group row">
                                 <label for="first_name"
                                        class="col-md-4 col-form-label text-md-right">{{ __('First name') }}</label>

@@ -21,8 +21,7 @@ class StoreProfileRequest extends FormRequest
                 'before_or_equal:' . Carbon::today()->subYears(18)->toDateString()
             ],
             'gender' => ['required'],
-            'country' => ['required', 'min:4'],
-            'picture' => ['required']
+            'country' => ['required', 'min:4']
         ];
     }
 

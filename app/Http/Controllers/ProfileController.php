@@ -39,8 +39,7 @@ class ProfileController extends Controller
     }
 
     public function store(StoreProfileRequest $request)
-    {        dd($request);
-
+    {
         $profile = new Profile($request->all());
         $picture = new Picture(['location' => $request->file('picture')->store('pictures')]);
         auth()->user()->profile()->save($profile);
@@ -50,7 +49,6 @@ class ProfileController extends Controller
 
     public function update(StoreProfileRequest $request)
     {
-
         auth()->user()->profile->update($request->all());
         if ($request->file('pictures')) {
             Like::where('judged_id', auth()->id())->where('like', false)->delete();
@@ -62,7 +60,7 @@ class ProfileController extends Controller
             }
             auth()->user()->pictures()->saveMany($pictures);
         }
-        return redirect()->route('profile.index')
+        return redirect()->route('profile.show')
             ->with('status', 'Profile updated');
     }
 }

@@ -30,7 +30,7 @@ class PictureController extends Controller
                 auth()->user()->pictures()->save($picture);
             }
         }
-        return redirect()->route('profile.index');
+        return redirect()->route('profile.show');
     }
 
     public function delete(Picture $picture)
