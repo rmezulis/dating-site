@@ -10,3 +10,5 @@ php artisan storage:link
 php artisan migrate
 ```
 If you wish to generate users you can use `php artisan db:seed` to generate 100 users by default.
+
+After all of that is done you can run the server using `php artisan serve` and `php artisan queue:listen`
