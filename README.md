@@ -5,8 +5,8 @@ Create a new database. Within the directory, rename .env.example to .env and fil
 Run the following commands:
 ```
 composer install
-php artisan migrate
-php artisan storage:link
 php artisan key:generate
+php artisan storage:link
+php artisan migrate
 ```
 If you wish to generate users you can use `php artisan db:seed` to generate 100 users by default.
