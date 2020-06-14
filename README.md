@@ -1,5 +1,7 @@
 # Dating site
-
+### Features
+Create your own personal profile with basic info of yourself and multiple pictures.
+View other people within the selected age and gender ranges and choose to like or pass on them. If a match is made you can view your matches full profile and recieve an email that informs you of ur match.
 ### Setup instructions
 Create a new database. Within the directory, rename .env.example to .env and fill out information regarding database and mailing.
 Run the following commands:
